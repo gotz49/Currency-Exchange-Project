@@ -1,0 +1,15 @@
+body {
+	background-color: #46a793b4;
+}
+
+#precios {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	max-width: 300px;
+	margin: 1em;
+	line-height: 1.4;
+}
+
+#precios input{
+     margin: 0.25em;
+}

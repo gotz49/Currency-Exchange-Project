@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- link de css -->
+		<link rel="stylesheet" href="css/style.css" />
+
+		<title>CONVERSOR DE DIVISAS</title>
+	</head>
+	<body>
+		<main>
+			<button id="verPrecios">Editar tipos de Cambio</button>
+			<button id="verMonedas">Ver tipos de Cambio</button>
+			<!-- Section para meter los tipos de cambio traidos del localStorage -->
+			<section id="monedasDOM" style="display: none"></section>
+			<!---->
+			<div id="precios" style="display: none">
+				<form id="divisas">
+					<input
+						type="text"
+						placeholder="USD -> $ARG"
+						id="usdToArg"
+					/>
+					<input
+						type="text"
+						placeholder="$ARG -> USD"
+						id="argToUsd"
+					/>
+					<input
+						type="text"
+						placeholder="USD -> $UYU"
+						id="usdToUyu"
+					/>
+					<input
+						type="text"
+						placeholder="$UYU -> USD"
+						id="uyuToUsd"
+					/>
+					<input
+						type="text"
+						placeholder="$UYU -> $ARG"
+						id="uyuToArg"
+					/>
+					<input
+						type="text"
+						placeholder="$ARG -> $UYU"
+						id="argToUyu"
+					/>
+
+					<button type="submit" class="cambiarPrecio">
+						Actualizar Divisas
+					</button>
+					<p>
+						Al actualizar los datos, los tipos de cambio se
+						almacenarán localmente en su navegador para que no tenga
+						que volver a ingresarlos.
+					</p>
+					<p>Podrá cambiarlos en un futuro si así lo desea.</p>
+				</form>
+			</div>
+
+			<!-- Inicio del Conversor de Divisas -->
+			<section>
+				<!-- Eleccion del tipo de cambio -->
+				<h2>Conversor de Divisas</h2>
+				<h3>¿Qué conversión quiere hacer?</h3>
+				<select id="eleccionConversor">
+					<option value="sinOpcion">Elige una opción</option>
+					<option value="cero">USD -> $ARG</option>
+					<option value="uno">$ARG -> USD</option>
+					<option value="dos">USD -> $UYU</option>
+					<option value="tres">$UYU -> USD</option>
+					<option value="cuatro">$UYU -> $ARG</option>
+					<option value="cinco">$ARG -> $UYU</option>
+				</select>
+				<div>
+					<h3>Monto a convertir</h3>
+					<form id="formMonto">
+						<input type="number" placeholder="Ingrese el monto" id="monto">
+						<button type="submit">convertir</button>
+					</form>
+					<span id="resultado"></span>
+				</div>
+			</section>
+			
+		</main>
+
+		<script src="javascript/main.js"></script>
+		<script src="javascript/functions.js"></script>
+	</body>
+</html>
