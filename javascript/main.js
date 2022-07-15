@@ -75,6 +75,8 @@ verMonedas.onclick = () => {
                <p>$UYU -> $ARG = ${busqueda(4)}</p>
                <p>$ARG -> $UYU = ${busqueda(5)}</p>
           `;
+          console.log(typeof busqueda(5));
+          console.log(busqueda(5));
 	}
 };
 
@@ -109,7 +111,7 @@ eleccionConversor.onchange = () => {
                calculoDivisaPor(4);
                break;
           case "cinco":
-               calculoDivisaDiv(5);
+               calculoDivisaPor(5);
                break;
      
           default:

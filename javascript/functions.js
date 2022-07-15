@@ -21,19 +21,12 @@ const hideAndSeek= (etiqueta) => {
 
 
 
-//function para actualizar la eleccion del conversor en la lista desplegable
-function actualizarEleccion() {
-     
-};
-
-
-
 
 
 // function para buscar en el array segun el id del tipo de cambio
 const busqueda = (id) => {
      let valorEncontrado = monedas.find( monedas => monedas.id === id)
-     let retorno = parseFloat(valorEncontrado.valor);
+     let retorno = Number(valorEncontrado.valor);
      return retorno.toFixed(3)
 };
 
