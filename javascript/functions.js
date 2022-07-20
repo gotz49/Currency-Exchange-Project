@@ -10,11 +10,9 @@ const guardarLocal = (key, value) => {
 
 // function para esconder y mostrar cosas en el DOM
 const hideAndSeek= (etiqueta) => {
-     if (etiqueta.style.display === "none") {
-          etiqueta.style.display = "block"
-     } else {
-          etiqueta.style.display ="none";
-     }
+     etiqueta.style.display === "none" 
+          ? etiqueta.style.display = "block" 
+          : etiqueta.style.display ="none"
 };
 
 
@@ -25,9 +23,9 @@ const hideAndSeek= (etiqueta) => {
 
 // function para buscar en el array segun el id del tipo de cambio
 const busqueda = (id) => {
-     let valorEncontrado = monedas.find( monedas => monedas.id === id)
-     let retorno = Number(valorEncontrado.valor);
-     return retorno.toFixed(3)
+     let valorEncontrado = monedas.find( moneda => moneda.id === id)
+     let retorno = parseFloat(valorEncontrado.valor);
+     return retorno
 };
 
 
@@ -43,11 +41,9 @@ calculoDivisaPor = (number) => {
           e.preventDefault();
           
           let monto = document.querySelector("#monto").value;    // input de monto
-          let busqueda = monedas.find( moneda => moneda.id === number);    // busqueda en el array moneda
-          let conversion = parseFloat(busqueda.valor) * monto;     // calculo de divisa
+          let conversion = busqueda(number) * monto;     // calculo de divisa
           
           const resultado = document.querySelector("#resultado");
-          
           // renderizo en el DOM
           resultado.innerHTML = `
                     La conversión es de ${conversion.toFixed(3)}
@@ -66,8 +62,7 @@ calculoDivisaDiv = (number) => {
           e.preventDefault();
           
           let monto = document.querySelector("#monto").value;    // input de monto
-          let busqueda = monedas.find( moneda => moneda.id === number);    // busqueda en el array moneda
-          let conversion = monto / parseFloat(busqueda.valor);     // calculo de divisa
+          let conversion = monto / busqueda(number);     // calculo de divisa
           
           const resultado = document.querySelector("#resultado");
           
