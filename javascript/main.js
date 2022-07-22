@@ -38,7 +38,7 @@ cambiarPrecio.onsubmit = () => {
 			id: 4,
 			valor: cuatro,
 		},
-		{
+		{                             
 			id: 5,
 			valor: cinco,
 		},
@@ -58,10 +58,13 @@ verMonedas.onclick = () => {
 	hideAndSeek(monedasDOM);
      
 	monedas === null
-		? alert(` 
-               No hay tipos de cambio aún.
-               Por favor agreguelos con el botón "Editar tipos de Cambio"
-               `)
+		? swal({
+			title: "Error",
+			text: "No cargaste los tipos de cambio previamente",
+			icon: "error",
+			confirm: "ok", 
+			timer: 2000    
+			})
 		: (monedasDOM.innerHTML = `
                <h1>Tipos de Cambio</h1>
                
