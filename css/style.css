@@ -1,11 +1,10 @@
 body {
-	background-color: #46a793b4;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-#precios {
+/* #precios {
 	display: grid;
 	grid-template-columns: auto 1fr;
 	max-width: 300px;
@@ -15,4 +14,4 @@ body {
 
 #precios input{
      margin: 0.25em;
-}
+} */
