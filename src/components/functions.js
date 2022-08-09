@@ -4,34 +4,61 @@
 // resultado ARS to UYU
 const resARStoUYU = (data) => {
      
+     let monto = Number(data.amount);
+     let moneda1 = data.base_currency_code;
+     let moneda2 = data.rates.UYU.currency_name;
+     let resultado = Number(data.rates.UYU.rate_for_amount);
+     let cambio = Number(data.rates.UYU.rate);
+     
      $resultado.innerHTML = `
           <p>
-               Convertiste: ${data.amount} ${data.base_currency_code} a ${data.rates.UYU.currency_name}
+               Convertiste: ${monto} ${moneda1} a ${moneda2}
           </p>
           <p>
-               El resultado son ${data.rates.UYU.rate_for_amount}
+               El resultado son ${resultado}
           </p>
           <p>
-               Tipo de cambio: ${data.rates.UYU.rate}
+               Tipo de cambio: ${cambio}
           </p>
-     `
-}
+     `;
+     
+     const anterior =`
+                         Conversión anterior: ${monto} ${moneda1} a ${moneda2}
+                         = ${resultado}
+                         Tipo de cambio utilizado: ${cambio}
+                         `;
+     guardarStorage(anterior);
+};
 
 // resultado UYU to ARS
 const resUYUtoARS = (data) => {
      
+     let monto = Number(data.amount);
+     let moneda1 = data.base_currency_code;
+     let moneda2 = data.rates.ARS.currency_name;
+     let resultado = Number(data.rates.ARS.rate_for_amount);
+     let cambio = Number(data.rates.ARS.rate);
+     
+     
      $resultado.innerHTML = `
           <p>
-               Convertiste: ${data.amount} ${data.base_currency_code} a ${data.rates.ARS.currency_name}
+               Convertiste: ${monto} ${moneda1} a ${moneda2}
           </p>
           <p>
-               El resultado son ${data.rates.ARS.rate_for_amount}
+               El resultado son ${resultado}
           </p>
           <p>
-               Tipo de cambio: ${data.rates.ARS.rate}
+               Tipo de cambio: ${cambio}
           </p>
      `
-}
+     const anterior =`
+                         Conversión anterior: ${monto} ${moneda1} a ${moneda2}
+                         = ${resultado}
+                         Tipo de cambio utilizado: ${cambio}
+                         `;
+     guardarStorage(anterior);
+          
+};
 
 convertir1 = () => {
      $formMonto.addEventListener('submit', async (e) => {
@@ -50,7 +77,7 @@ convertir1 = () => {
      })
 }
 
-convertir2 = () => {
+convertir2 = async () => {
      $formMonto.addEventListener('submit', async (e) => {
           e.preventDefault();
           const {value} = $monto
